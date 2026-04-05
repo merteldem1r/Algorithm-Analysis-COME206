@@ -68,10 +68,14 @@ int main()
         // Generate base random array
         int *baseArr = new int[size];
         fillRandomNumbers(baseArr, size);
+        std::cout << "  Random array: ";
+        printArr(baseArr, size);
 
         // Create pre-sorted array for binary search (outside timing)
         int *sortedArr = new int[size];
         fillSortedNumbers(sortedArr, size);
+        std::cout << "  Sorted array: ";
+        printArr(sortedArr, size);
 
         // Run each algorithm multiple times and compute average
         long long bsTime = 0, msTime = 0, qsTime = 0;
