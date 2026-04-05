@@ -58,7 +58,6 @@ int main()
     // Random number generator for target values
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(1, 100);
 
     // For each array size
     for (int s = 0; s < NUM_SIZES; ++s)
@@ -76,10 +75,12 @@ int main()
 
         // Run each algorithm multiple times and compute average
         long long bsTime = 0, msTime = 0, qsTime = 0;
+        std::uniform_int_distribution<> dis(1, size);
 
         for (int run = 0; run < NUM_RUNS; ++run)
         {
-            int randomTarget = dis(gen);  // Generate random target for binary search
+            int randomTarget = dis(gen); // Generate random target for binary search
+            std::cout << "  Run " << run + 1 << "/" << NUM_RUNS << " with target: " << randomTarget << std::endl;
             bsTime += timeAlgorithmInMicroseconds(0, baseArr, size, sortedArr, randomTarget);
             msTime += timeAlgorithmInMicroseconds(1, baseArr, size, sortedArr);
             qsTime += timeAlgorithmInMicroseconds(2, baseArr, size, sortedArr);
