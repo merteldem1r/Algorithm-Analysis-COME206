@@ -10,24 +10,26 @@ This repository contains the Work 1 solution for the algorithm analysis assignme
 
 ```text
 Work-1/
-	Solution/
-		include/
-			algorithms.h
-			utils.h
-		src/
-			algorithms/
-				BinarySearch.cpp
-				MergeSort.cpp
-				QuickSort.cpp
-			utils/
-				utils.cpp
-            main.cpp
-		analysis/
-			analysis.ipynb
-			requirements.txt
-			time_results/
-				results.csv
-				performance_chart.png
+    |-- Directives/
+    |-- Solution/
+        |-- app                            # compiled executable output
+        |-- include/                       # shared C++ headers
+        |   |-- algorithms.h
+        |   |-- utils.h
+        |-- src/
+        |   |-- main.cpp                   # benchmark entry point
+        |   |-- algorithms/
+        |   |   |-- BinarySearch.cpp
+        |   |   |-- MergeSort.cpp
+        |   |   |-- QuickSort.cpp
+        |   |-- utils/
+        |       |-- utils.cpp              # random/sorted array helpers
+        |-- analysis/
+            |-- analysis.ipynb             # creates plots from benchmark output
+            |-- requirements.txt
+            |-- time_results/
+                |-- results.csv            # raw timing results from C++ run
+                |-- performance_chart.png  # notebook-generated chart
 ```
 
 ## What Was Done
@@ -36,6 +38,10 @@ Work-1/
 - Added a benchmark in `main.cpp` to measure execution time.
 - Saved timing results in CSV format.
 - Created a simple notebook to plot the graph required by the directive.
+
+<br>
+
+![performance_chart](Work-1/Solution/analysis/time_results/performance_chart.png)
 
 ## How to Run the C++ Program
 
