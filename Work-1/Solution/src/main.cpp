@@ -5,7 +5,6 @@
 #include "utils.h"
 #include "algorithms.h"
 
-// Test array sizes as per directive
 const int SIZES[] = {100, 1000, 5000, 10000, 20000};
 const int NUM_SIZES = 5;
 const int NUM_RUNS = 5; // Multiple runs to average results
