@@ -1,7 +1,7 @@
 #include <iostream>
 #include <random>
 
-void fillSorderNumbers(int arr[], int arrSize)
+void fillSortedNumbers(int arr[], int arrSize)
 {
     for (int i = 0; i < arrSize; ++i)
     {
