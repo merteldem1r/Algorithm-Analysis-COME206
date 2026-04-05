@@ -2,6 +2,7 @@
 #include <fstream>
 #include <chrono>
 #include <cstring>
+#include <random>
 #include "utils.h"
 #include "algorithms.h"
 
@@ -10,7 +11,7 @@ const int NUM_SIZES = 5;
 const int NUM_RUNS = 5; // Multiple runs to average results
 
 // Timing helper function
-long long timeAlgorithmInMicroseconds(int algorithm, int arr[], int size)
+long long timeAlgorithmInMicroseconds(int algorithm, int arr[], int size, int *sortedArr = nullptr, int target = -1)
 {
     // Create copies for each algorithm
     int *arrCopy = new int[size];
@@ -18,14 +19,10 @@ long long timeAlgorithmInMicroseconds(int algorithm, int arr[], int size)
 
     auto start = std::chrono::high_resolution_clock::now();
 
-    if (algorithm == 0) // Binary Search
+    if (algorithm == 0) // Binary Search (on pre-sorted array)
     {
-        // For binary search, we need sorted array
-        int *sortedArr = new int[size];
-        std::memcpy(sortedArr, arr, size * sizeof(int));
-        mergeSort(sortedArr, size, 0, size - 1);
-        binarySearch(sortedArr, size, sortedArr[size / 2]);
-        delete[] sortedArr;
+        // Timer only measures the search with random target
+        binarySearch(sortedArr, size, target);
     }
     else if (algorithm == 1) // Merge Sort
     {
@@ -58,6 +55,11 @@ int main()
     std::ofstream csvFile("analysis/time_results/results.csv");
     csvFile << "Size,BinarySearch,MergeSort,QuickSort\n";
 
+    // Random number generator for target values
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(1, 100);
+
     // For each array size
     for (int s = 0; s < NUM_SIZES; ++s)
     {
@@ -68,14 +70,19 @@ int main()
         int *baseArr = new int[size];
         fillRandomNumbers(baseArr, size);
 
+        // Create pre-sorted array for binary search (outside timing)
+        int *sortedArr = new int[size];
+        fillSortedNumbers(sortedArr, size);
+
         // Run each algorithm multiple times and compute average
         long long bsTime = 0, msTime = 0, qsTime = 0;
 
         for (int run = 0; run < NUM_RUNS; ++run)
         {
-            bsTime += timeAlgorithmInMicroseconds(0, baseArr, size);
-            msTime += timeAlgorithmInMicroseconds(1, baseArr, size);
-            qsTime += timeAlgorithmInMicroseconds(2, baseArr, size);
+            int randomTarget = dis(gen);  // Generate random target for binary search
+            bsTime += timeAlgorithmInMicroseconds(0, baseArr, size, sortedArr, randomTarget);
+            msTime += timeAlgorithmInMicroseconds(1, baseArr, size, sortedArr);
+            qsTime += timeAlgorithmInMicroseconds(2, baseArr, size, sortedArr);
         }
 
         // Compute averages
@@ -89,6 +96,7 @@ int main()
         std::cout << "  Quick Sort:    " << qsAvg << " µs" << std::endl
                   << std::endl;
 
+        delete[] sortedArr;
         // Write to CSV
         csvFile << size << "," << bsAvg << "," << msAvg << "," << qsAvg << "\n";
 
