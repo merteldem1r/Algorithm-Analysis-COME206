@@ -1,6 +1,6 @@
 #include <iostream>
 
-// Graph - Adjacency List
+// Graph (weighted/unweighted) - Adjacency List
 
 class Graph
 {
@@ -10,7 +10,7 @@ private:
     std::vector<std::vector<std::pair<int, int>>> adj; // {node, distance}
 
 public:
-    Graph(int s, bool isW)
+    Graph(int s, bool isW = false)
     {
         size = s;
         adj.reserve(s);
@@ -23,12 +23,20 @@ public:
         adj[j].emplace_back(i, w);
     }
 
-    // helpers
-    int getSize()
+    void print()
     {
-        return size;
+        for (int i = 0; i < adj.size(); ++i)
+        {
+            std::cout << i << ": ";
+            for (auto &[n, w] : adj[i])
+            {
+                std::cout << "{" << n << ", " << w << "} ";
+            }
+            std::cout << std::endl;
+        }
     }
 
+    // helpers
     std::vector<std::vector<std::pair<int, int>>> &getAdj()
     {
         return adj;

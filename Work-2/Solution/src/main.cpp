@@ -1,6 +1,6 @@
 #include <iostream>
 
-// Work 2: Graph Algorithms
+// Work 2: Graph & Graph Algorithms
 
 int main()
 {
