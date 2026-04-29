@@ -1,10 +1,11 @@
 # Algorithm Analysis
 
 **AUTHOR**: Mert Eldemir
+This repository contains the Work 1 & 2 solutions for the algorithm analysis assignment.
 
 ## Work 1
 
-This repository contains the Work 1 solution for the algorithm analysis assignment.
+Implementation of **Binary Search**, **Merge Sort** and **Quick Sort** algorithms with **C++** and their time based analysis with **Python**.
 
 ## Folder Structure
 
@@ -71,3 +72,7 @@ If you want to open it from the terminal after the kernel is ready:
 ```bash
 jupyter notebook analysis.ipynb
 ```
+
+## Work 2
+
+**Graph** related topics such as, random created Graph (directed/undirected), **BFS**, **DFS** and **Dijkstra's** algorithms among with complexity analysis.
