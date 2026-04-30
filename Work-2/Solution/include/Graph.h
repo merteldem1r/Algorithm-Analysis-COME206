@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-// Graph (weighted/unweighted) - Adjacency List
+// Graph - Adjacency List
 
 class Graph
 {
