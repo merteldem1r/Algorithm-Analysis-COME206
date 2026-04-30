@@ -1,4 +1,5 @@
 #include <iostream>
+#include "algorithms.h"
 
 std::vector<int> dfs(const std::vector<std::vector<std::pair<int, int>>> &adj, int start) // Time: O(V + E) | Space: O(V)
 {
