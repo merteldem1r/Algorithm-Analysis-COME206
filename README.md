@@ -8,7 +8,7 @@ This repository contains Work 1 & 2 solutions for the Algorithm Analysis class.
 
 Implementation of **Binary Search**, **Merge Sort** and **Quick Sort** algorithms with **C++** and their time based analysis with **Python**.
 
-## Folder Structure
+### Folder Structure
 
 ```text
 Work-1/
@@ -34,18 +34,14 @@ Work-1/
                 |-- performance_chart.png  # notebook-generated chart
 ```
 
-## What Was Done
+### What Was Done
 
 - Implemented Binary Search, Merge Sort, and Quick Sort in C++.
 - Added a benchmark in `main.cpp` to measure execution time.
 - Saved timing results in CSV format.
 - Created a simple notebook to plot the graph required by the directive.
 
-<br>
-
-![performance_chart](Work-1/Solution/analysis/time_results/performance_chart.png)
-
-## How to Run the C++ Program
+### How to Run the C++ Program
 
 From the `Solution` folder:
 
@@ -55,7 +51,7 @@ g++ -std=c++17 -O2 -Iinclude src/main.cpp src/algorithms/*.cpp src/utils/*.cpp -
 ./app
 ```
 
-## How to Run the Notebook
+### How to Run the Notebook
 
 From the `analysis` folder:
 
@@ -76,6 +72,84 @@ jupyter notebook analysis.ipynb
 
 ## Work 2
 
-**Graph** related topics such as; random created Graph (weighted/unweighted), **BFS**, **DFS** and **Dijkstra's** algorithms among with complexity analysis.
+Implementation and experimental analysis of graph algorithms using **C++** and visualization of benchmark results using **Python/Jupyter Notebook**.
 
-g++ -std=c++17 -O2 -Iinclude src/main.cpp src/algorithms/_.cpp src/utils/_.cpp -o app
+This work includes:
+
+- Random graph generation
+- Directed / undirected graph support
+- Weighted / unweighted graph support
+- Graph representation with adjacency list
+- BFS traversal
+- DFS traversal
+- Dijkstra shortest path algorithm
+- Runtime benchmarking with different graph sizes and densities
+- CSV export of benchmark results
+- Visualization of results with Python
+
+### Folder Structure
+
+```text
+Work-2/
+    |-- Directives/
+    |   |-- directive.pdf
+    |   |-- report.pdf
+    |-- Solution/
+        |-- app.out                        # compiled executable output
+        |-- include/                       # shared C++ headers
+        |   |-- algorithms.h
+        |   |-- Graph.h
+        |   |-- utils.h
+        |-- src/
+        |   |-- main.cpp                   # benchmark entry point
+        |   |-- algorithms/
+        |   |   |-- bfs.cpp
+        |   |   |-- dfs.cpp
+        |   |   |-- dijkstras.cpp
+        |   |-- utils/
+        |       |-- utils.cpp              # random graph generation and benchmark helpers
+        |-- analysis/
+            |-- analysis.ipynb             # creates plots from benchmark output
+            |-- requirements.txt
+            |-- benchmark/
+                |-- benchmark_results.csv  # raw benchmark results from C++ run
+```
+
+### What Was Done
+
+- Implemented a **Graph class** using **adjacency list** representation.
+- Added support for both **directed** and **undirected** graphs and also both **weighted** and **unweighted** graphs.
+- Implemented **random graph generation** based on:
+  - vertex count
+  - edge count
+  - graph direction type
+  - graph weight type
+  - minimum and maximum edge weight
+- Implemented **BFS** & **DFS** to get traversal order and reachable vertices.
+- Implemented **Dijkstra's algorithm** to calculate shortest path distances from a source vertex.
+- **Added benchmark** logic to test algorithms on **different graph sizes**:
+  - small graphs
+  - medium graphs
+  - large graphs
+- Tested different **graph densities**:
+  - sparse
+  - medium
+  - dense
+- Exported results to benchmark_results.csv.
+- Created a Jupyter Notebook to visualize and analyze benchmark results.
+
+### How to Run the C++ Program
+
+From the `Solution` folder:
+
+```bash
+cd Algorithm-Analysis-COME206/Work-2/Solution
+g++ -std=c++17 -O2 -Iinclude src/main.cpp src/algorithms/*.cpp src/utils/*.cpp -o app.out
+./app
+```
+
+After **running the executable**, **benchmark results** will be saved to:
+
+```bash
+Work-2/Solution/analysis/benchmark/benchmark_results.csv
+```
