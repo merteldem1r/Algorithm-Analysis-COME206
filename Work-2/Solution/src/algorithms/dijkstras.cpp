@@ -1,8 +1,9 @@
 #include <iostream>
+#include "algorithms.h"
 
 // Dijkstra's Algorithm - Shortest Path Algorithm
 
-std::vector<int> dijkstra(std::vector<std::vector<std::pair<int, int>>> &adj, const int src)
+std::vector<int> dijkstra(const std::vector<std::vector<std::pair<int, int>>> &adj, const int src)
 {
     // Min-heap (priority queue) storing distance and node
     std::priority_queue<std::pair<int, int>, std::vector<std::pair<int, int>>, std::greater<std::pair<int, int>>> pq;

@@ -1,9 +1,12 @@
 #include <iostream>
 
-// Work 2: Graph & Graph Algorithms
+#include "Graph.h"
+#include "algorithms.h"
+#include "utils.h"
 
 int main()
 {
+    runBenchmarkAndSaveCSV("analysis/benchmark/benchmark_results.csv", 1000);
 
     return 0;
 }

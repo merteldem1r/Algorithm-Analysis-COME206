@@ -1,7 +1,8 @@
 # Algorithm Analysis
 
 **AUTHOR**: Mert Eldemir
-This repository contains the Work 1 & 2 solutions for the algorithm analysis assignment.
+</br>
+This repository contains Work 1 & 2 solutions for the Algorithm Analysis class.
 
 ## Work 1
 
@@ -75,4 +76,6 @@ jupyter notebook analysis.ipynb
 
 ## Work 2
 
-**Graph** related topics such as, random created Graph (directed/undirected), **BFS**, **DFS** and **Dijkstra's** algorithms among with complexity analysis.
+**Graph** related topics such as; random created Graph (weighted/unweighted), **BFS**, **DFS** and **Dijkstra's** algorithms among with complexity analysis.
+
+g++ -std=c++17 -O2 -Iinclude src/main.cpp src/algorithms/_.cpp src/utils/_.cpp -o app
